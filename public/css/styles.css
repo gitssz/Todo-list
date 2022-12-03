@@ -1,6 +1,5 @@
 html {
   background-color:#EEF1FF;
-  /* background-image: -webkit-linear-gradient(65deg, #ecc5ec 50%, #faf7fa 50%); */
   min-height: 1000px;
   font-family: 'sans-serif';
 }
@@ -12,14 +11,13 @@ top: 20px;
 height: 450px;
 } */
 
-  .working-img2{
+/*  .working-img2{
     position: absolute;
   right:  0px;
   bottom: 10px;
   height: 500px;
   width: 500px;
-
-  }
+  } */
 
 h1 {
   color: #fff;
