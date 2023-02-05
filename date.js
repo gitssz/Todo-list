@@ -16,4 +16,4 @@ exports.getDay=function getDay(){
       
     };
     return today.toLocaleDateString("en-US", options);
-    }
+    } 
