@@ -3,11 +3,11 @@
     <div class="box" id="heading">
         <h1><%=listTitle%></h1>
     </div>
-    <div class="box">
+    <div class="box">                                   
             <%addItems.forEach(function(item){ %>
-                <form class="item" action="/delete" method="post">
+                <form action="/delete" method="post">
                 <div class="item">
-                        <input type="checkbox" name="Checkbox" value=<%= item._id%> onchange="this.form.submit()">
+                        <input type="checkbox" name="doneCheckbox" value="<%=item._id%>" onchange="this.form.submit()">
                         <P><%=item.name%></P>
                         <!-- <button class="delbtn" name="delbtn" type="submit" onclick="deleteItem()"> -->
                             <!-- <i class="fa-solid fa-trash-can"></i> -->
@@ -17,7 +17,7 @@
             <%})%>
 
         <form class="item" action="/" method="post">
-        <input type="text" name="newItem" autocomplete="off">
+        <input type="text" name="newItem" autocomplete="off" autofocus="autofocus">
         <button type="submit" class="addbtn" name="button" value=<%=listTitle%>>+</button><br>
         </form>
     </div>
