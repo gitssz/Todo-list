@@ -7,18 +7,18 @@
             <%addItems.forEach(function(item){ %>
                 <form action="/delete" method="post">
                 <div class="item">
-                        <input type="checkbox" name="doneCheckbox" value="<%=item._id%>" onchange="this.form.submit()">
+                        <input type="checkbox" name="checkedCheckbox" value="<%=item._id%>" onchange="this.form.submit()">
                         <P><%=item.name%></P>
                         <!-- <button class="delbtn" name="delbtn" type="submit" onclick="deleteItem()"> -->
                             <!-- <i class="fa-solid fa-trash-can"></i> -->
                         <!-- </button> -->
                 </div>
+                <input type="hidden" name="listName" value="<%= listTitle%>" >
             </form>
             <%})%>
-
         <form class="item" action="/" method="post">
         <input type="text" name="newItem" autocomplete="off" autofocus="autofocus">
-        <button type="submit" class="addbtn" name="button" value=<%=listTitle%>>+</button><br>
+        <button type="submit" class="addbtn" name="list" value=<%=listTitle%>>+</button><br>
         </form>
     </div>
     <!-- <img src="image/working1.png" class="working-img2" > -->
