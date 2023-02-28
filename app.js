@@ -99,30 +99,30 @@ res.redirect("/"+listName);
 
 app.post("/delete", (req, res) => {
   const _listName = req.body.listName;
-  const itemsId=req.body.checkedCheckbox;    //getting that checkbox associated with the task
+  const itemsId=req.body.checkedCheckbox;   //getting that checkbox name associated with the task
   console.log(itemsId);
   if(_listName===Today){
   itemsModel.deleteOne({ _id: itemsId }, function (err) {
     if (err) {
       console.log(err);
-    } else {
+    }else {
       console.log("successfully deleted item");
       res.redirect("/");
     }
   });
 }
-else{
-// listModel.findOneAndUpdate({name:_listName},{$pull:{items:{_id:itemsId}}},function(err){
-listModel.updateOne({name:_listName},{$pull:{items:{_id:itemsId}}},function(err){
-if(err){
-    console.log(err);
-  }
   else{
-    console.log("successfully deleted");
-    res.redirect("/"+_listName);
-  }
-  })}
+  listModel.findOneAndUpdate({name:_listName},{$pull:{items:{_id:itemsId}}},function(err){
+  // listModel.updateOne({name:_listName},{$pull:{items:{_id:itemsId}}},function(err){
+  if(err){
+      console.log(err);
+    }else{
+      console.log("successfully deleted");
+      res.redirect("/"+_listName);
+    }
+    })}
 });
+
 
 app.get("/about", (req, res) => {
   res.render("about");
