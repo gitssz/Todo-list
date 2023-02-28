@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:customName", (req, res) => {
-  let custName = req.params.customName;
+  let custName = req.params.customName.toLowerCase();
   // console.log(custName);
 listModel.findOne({name:custName},function(err,result){
   if(!err){   //no error
@@ -106,7 +106,7 @@ app.post("/delete", (req, res) => {
     if (err) {
       console.log(err);
     }else {
-      console.log("successfully deleted item");
+      // console.log("successfully deleted item");
       res.redirect("/");
     }
   });
@@ -117,12 +117,12 @@ app.post("/delete", (req, res) => {
   if(err){
       console.log(err);
     }else{
-      console.log("successfully deleted");
+      // console.log("successfully deleted");
       res.redirect("/"+_listName);
     }
     })}
 });
-
+//$pull-The $pull operator removes from an existing array all instances of a value or values that match a specified condition
 
 app.get("/about", (req, res) => {
   res.render("about");
